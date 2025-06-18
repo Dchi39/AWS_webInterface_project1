@@ -1,36 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sorting System Input</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h2>Sorting System - Data Input</h2>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white shadow-xl rounded-2xl p-8 max-w-md w-full space-y-6">
+    <h2 class="text-2xl font-bold text-gray-800 text-center">Sorting System - Data Input</h2>
 
-  <label>Item Type:</label>
-  <select id="item">
-    <option value="apple">Apple</option>
-    <option value="orange">Orange</option>
-    <option value="mango">Mango</option>
-  </select><br><br>
+    <div>
+      <label class="block text-gray-600 font-semibold mb-1">Item Type:</label>
+      <select id="item" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <option value="apple">Apple</option>
+        <option value="orange">Orange</option>
+        <option value="mango">Mango</option>
+      </select>
+    </div>
 
-  <label>Count:</label>
-  <input type="number" id="count" /><br><br>
+    <div>
+      <label class="block text-gray-600 font-semibold mb-1">Count:</label>
+      <input type="number" id="count" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+    </div>
 
-  <label>Machine:</label>
-  <button onclick="setState('machine', 'on')">ON</button>
-  <button onclick="setState('machine', 'off')">OFF</button><br><br>
+    <div>
+      <label class="block text-gray-600 font-semibold mb-2">Machine:</label>
+      <div class="flex gap-4">
+        <button onclick="setState('machine', 'on')" class="w-1/2 bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg">ON</button>
+        <button onclick="setState('machine', 'off')" class="w-1/2 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg">OFF</button>
+      </div>
+    </div>
 
-  <label>Motor:</label>
-  <button onclick="setState('motor', 'on')">ON</button>
-  <button onclick="setState('motor', 'off')">OFF</button><br><br>
+    <div>
+      <label class="block text-gray-600 font-semibold mb-2">Motor:</label>
+      <div class="flex gap-4">
+        <button onclick="setState('motor', 'on')" class="w-1/2 bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg">ON</button>
+        <button onclick="setState('motor', 'off')" class="w-1/2 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg">OFF</button>
+      </div>
+    </div>
 
-  <button onclick="submitData()">Submit</button>
+    <button onclick="submitData()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold">
+      Submit
+    </button>
 
-  <p id="status"></p>
+    <p id="status" class="text-center text-sm text-gray-700"></p>
+  </div>
 
   <script>
-    const API_BASE = 'https://9x--------------ws.com/prod/web';// Replace with your actual API endpoint
-
+    const API_BASE = 'https://9x--------------ws.com/prod/web'; // Replace with your actual endpoint
     let machine = 'off';
     let motor = 'off';
 
@@ -56,7 +74,7 @@
       })
       .then(res => res.json())
       .then(data => {
-        document.getElementById('status').innerText = data.message || 'Submitted';
+        document.getElementById('status').innerText = data.message || 'Submitted successfully';
       })
       .catch(err => {
         document.getElementById('status').innerText = 'Error: ' + err;
