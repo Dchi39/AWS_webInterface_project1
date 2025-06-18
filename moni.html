@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sorting System Monitor</title>
+</head>
+<body>
+  <h2>Real-Time Monitoring</h2>
+
+  <h3>Sorting System (Web Data)</h3>
+  <p><strong>Item:</strong> <span id="item"></span></p>
+  <p><strong>Count:</strong> <span id="count"></span></p>
+  <p><strong>Machine:</strong> <span id="machine"></span></p>
+  <p><strong>Motor:</strong> <span id="motor"></span></p>
+
+  <h3>ESP32 Sensor Data</h3>
+  <p><strong>Temperature:</strong> <span id="temp"></span> °C</p>
+  <p><strong>Humidity:</strong> <span id="humidity"></span> %</p>
+
+  <script>
+    const WEB_API = 'https://9x------------.amazonaws.com/prod/web?type=web';
+    const ESP_API = 'https://9x------------.amazonaws.com/prod/esp32?type=esp';
+
+    async function fetchData() {
+      try {
+        // Get web data
+        const webRes = await fetch(WEB_API);
+        const webData = await webRes.json();
+
+        document.getElementById('item').innerText = webData.item || '-';
+        document.getElementById('count').innerText = webData.count || '-';
+        document.getElementById('machine').innerText = webData.machine || '-';
+        document.getElementById('motor').innerText = webData.motor || '-';
+
+        // Get ESP32 data
+        const espRes = await fetch(ESP_API);
+        const espData = await espRes.json();
+
+        document.getElementById('temp').innerText = espData.temperature || '-';
+        document.getElementById('humidity').innerText = espData.humidity || '-';
+      } catch (err) {
+        console.error('Fetch error:', err);
+      }
+    }
+
+    // Fetch every 5 seconds
+    fetchData();
+    setInterval(fetchData, 5000);
+  </script>
+</body>
+</html>
