@@ -2,16 +2,17 @@
  
 This is a demonstration project simulating a smart industrial sorting system using ESP32, AWS, and a responsive web interface. It showcases real-time data monitoring and control using modern IoT and cloud tools.
 
-##🧠 Project Overview
-A smart, cloud-connected sorting system where:
+#🧠 Project Overview
+-A smart, cloud-connected sorting system where:
 
-The ESP32 collects sensor and system data
+-The ESP32 collects sensor and system data
 
-Data is sent to AWS DynamoDB via REST APIs
+-Data is sent to AWS DynamoDB via REST APIs
 
-A web dashboard (hosted on AWS S3) provides real-time monitoring and data entry
+-A web dashboard (hosted on AWS S3) provides real-time monitoring and data entry
 
-📋 Process Flow
+#📋 Process Flow
+
 🔧 Step 1: Setup ESP32 to Collect and Send Data
 🖥️ Code the ESP32 using Arduino IDE
 
