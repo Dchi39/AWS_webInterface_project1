@@ -2,7 +2,7 @@
  
 This is a demonstration project simulating a smart industrial sorting system using ESP32, AWS, and a responsive web interface. It showcases real-time data monitoring and control using modern IoT and cloud tools.
 
-#🧠 Project Overview
+##🧠 Project Overview
 -A smart, cloud-connected sorting system where:
 
 -The ESP32 collects sensor and system data
