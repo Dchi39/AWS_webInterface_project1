@@ -41,7 +41,8 @@ This is a demonstration project simulating a smart industrial sorting system usi
 
 * Test Case: Insert Web Data (POST)
 
-``` {
+```
+{
   "httpMethod": "POST",
   "body": "{\"source\":\"web\",\"item\":\"apple\",\"count\":10,\"machine\":\"on\",\"motor\":\"off\"}"
 }
@@ -49,7 +50,8 @@ This is a demonstration project simulating a smart industrial sorting system usi
 ```
 * Test Case: Insert ESP32 Data (POST)
 
- ``` {
+ ```
+{
   "httpMethod": "POST",
   "body": "{\"source\":\"esp\",\"temperature\":28.4,\"humidity\":65.1}"
 }
@@ -57,7 +59,8 @@ This is a demonstration project simulating a smart industrial sorting system usi
 
 * Test cases for Read data
 
-``` {
+```
+{
   "httpMethod": "GET",
   "queryStringParameters": {
     "type": "web"
